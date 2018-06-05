@@ -5,11 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>we hate friends Message Board</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="client.js"></script>
+    <link rel="stylesheet" href="./vendors/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <script src="./vendors/angular.min.js"></script>
+    <script src="./scripts/client.js"></script>
 </head>
 <body>
+    <div ng-app="friendsApp">
+        <div ng-controller="FriendsController as FC">
+
+       
     <h1>we hate friends!</h1>
     <h3>this message board is for people who HATE friends.</h3>
     <h4>rules: only post here if you hate friends. the admin reserves the right to delete pro-friends content</h4>
+    <form>
+        <input type="text" placeholder="user" ng-model="FC.userIn">
+        <input type="text" placeholder="post" ng-model="FC.postIn">
+        <button ng-click="FC.postPost()">post</button>
+    </form>
+    <div output>
+        <table class="table table-bordered thead-dark">
+            <thead class="thead-dark">
+                <tr>
+                    <td>User</td>
+                    <td>Post</td>
+                </tr>
+            </thead>
+            <tr ng-repeat="message in FC.messagesArray">
+                <td>{{message.user}}</td>
+                <td>{{message.post}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
 </body>
 </html>

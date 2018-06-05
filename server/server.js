@@ -8,7 +8,7 @@ const messageRouter = require('./routes/router')
 app.use(express.static('server/public'))
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json());
-app.use('/message', messageRouter);
+app.use('/messages', messageRouter);
 
 const DB_NAME = 'list';
 const DB_URL = process.env.MONGODB_URL || `mongodb://localhost:27017/${DB_NAME}`
